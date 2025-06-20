@@ -1,10 +1,5 @@
 
-
-SELECT Outlet_Establishment_Year, ROUND(SUM(Total_Sales), 2) AS Total_Sales, Outlet_Size AS Outlet_size
-FROM   blinkit_data
-GROUP BY Outlet_Establishment_Year, Outlet_Size
-ORDER BY Total_Sales
-
+-- Clean the unclean data --
 update blinkit_data
 SET Item_Fat_Content =
 case 
@@ -13,7 +8,7 @@ when Item_Fat_Content in ('reg') then 'Regular'
 else Item_Fat_Content
 end 
 
-
+-- Check the Data
 select * from blinkit_data;
 
 select distinct(Item_Fat_Content) as Item_Fat_Content from blinkit_data;
